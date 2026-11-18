@@ -1,8 +1,8 @@
 const heights = [164, 157, 160, 143, 170];
 
-const heightList = document.getElementById('height-list');
-const addBtn = document.getElementById('add-btn');
-const filterBtn = document.getElementById('filter-btn');
+const heightList = document.querySelector('#height-list');
+const addBtn = document.querySelector('#add-btn');
+const filterBtn = document.querySelector('#filter-btn');
 
 function renderHeights(list) {
   heightList.innerHTML = '';
@@ -21,7 +21,7 @@ function addHeight() {
     return;
   }
 
-  const value = Number(input.trim().replace(',', '.'));
+  const value = +(input.trim().replace(',', '.'));
 
   if (input.trim() === '' || Number.isNaN(value) || value <= 0) {
     alert('Рост не введён!');
@@ -44,7 +44,7 @@ function filterHeights() {
     return;
   }
 
-  const min = Number(input.trim().replace(',', '.'));
+  const min = +(input.trim().replace(',', '.'));
 
   if (Number.isNaN(min)) {
     renderHeights(heights);
